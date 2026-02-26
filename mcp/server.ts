@@ -31,6 +31,11 @@ import { listLedgerFiles } from "./ledgerIndexer.js";
 const files = listLedgerFiles();
 console.log("Ledger Files:", files);
 
+import { readLedgerFile } from "./ledgerReader.js";
+
+const data = readLedgerFile("incidents.md");
+console.log("\nLedger Content:\n", data);
+
 /**
  * Tool registry
  * These describe WHAT the server exposes, not HOW it works
