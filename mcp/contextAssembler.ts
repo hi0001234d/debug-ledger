@@ -1,4 +1,4 @@
-import { readLedgerFile } from "./readLedgerFile";
+import { readLedgerFile } from "./ledgerReader";
 
 /**
  * C3 — Context Assembly
