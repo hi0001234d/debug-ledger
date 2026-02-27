@@ -93,13 +93,13 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         filename: string;
       };
   
-      const content = readLedgerFile(filename);
+      const assembledContext = assembleLedgerContext(filename);
   
       return {
         content: [
           {
             type: "text",
-            text: content,
+            text: assembledContext,
           },
         ],
       };
