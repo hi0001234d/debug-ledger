@@ -4,7 +4,7 @@ import {
   ListToolsRequestSchema,
   CallToolRequestSchema,
 } from "@modelcontextprotocol/sdk/types.js";
-
+import { assembleLedgerContext } from "./contextAssembler.js";
 /**
  * debug-ledger MCP server
  *
@@ -87,14 +87,14 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         ],
       };
     }
-  
+
     case "read_ledger_file": {
       const { filename } = request.params.arguments as {
         filename: string;
       };
   
       const assembledContext = assembleLedgerContext(filename);
-  
+      
       return {
         content: [
           {
@@ -104,6 +104,8 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         ],
       };
     }
+
+    
   
     default:
       throw new Error(`Unknown tool: ${name}`);
