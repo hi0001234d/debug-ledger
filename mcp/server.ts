@@ -4,7 +4,7 @@ import {
   ListToolsRequestSchema,
   CallToolRequestSchema,
 } from "@modelcontextprotocol/sdk/types.js";
-
+import { assembleLedgerContext } from "./contextAssembler.js";
 /**
  * debug-ledger MCP server
  *
@@ -93,15 +93,22 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         ],
       };
 
-    case "read_ledger_file":
+    case "read_ledger_file": {
+      const { filename } = request.params.arguments as {
+        filename: string;
+      };
+
+      const assembledContext = assembleLedgerContext(filename);
+
       return {
         content: [
           {
             type: "text",
-            text: "Ledger file reading not implemented yet.",
+            text: assembledContext,
           },
         ],
       };
+    }
 
     case "search_ledger":
       return {
