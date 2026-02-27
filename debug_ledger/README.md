@@ -87,9 +87,9 @@ Do not append multiple entries into a single file.
 Use descriptive filenames in the format:
 
 - constraints-<topic>.md
+- incidents-<area>.md
 - regressions-<area>.md
 - rejected_fixes-<topic>.md
-- incidents-<area>.md
 
 Examples:
 - constraints-api.md
