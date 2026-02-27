@@ -15,14 +15,30 @@ export function assembleLedgerContext(input: string): string {
 
   // Normalize separators:
   // Replace , | newline tab multiple spaces with single comma
-  const normalized = input
-    .replace(/\|/g, ",")
-    .replace(/\n/g, ",")
-    .replace(/\t/g, ",")
+  // const normalized = input
+  //   .replace(/\|/g, ",")
+  //   .replace(/\n/g, ",")
+  //   .replace(/\t/g, ",")
+  //   .replace(/\s+/g, ",")
+  //   .split(",")
+  //   .map((f) => f.trim())
+  //   .filter((f) => f.length > 0);
+
+  const rawFiles = input
+    .toLowerCase()
+    .replace(/["']/g, "")
+    .replace(/\(.*?\)/g, "")
+    .replace(/\band\b/g, ",")
+    .replace(/&/g, ",")
+    .replace(/^- /gm, "")
+    .replace(/^• /gm, "")
+    .replace(/\bfiles?:/g, "")
+    .replace(/[\r\n\t|;]+/g, ",")
     .replace(/\s+/g, ",")
     .split(",")
     .map((f) => f.trim())
-    .filter((f) => f.length > 0);
+    .filter(Boolean)
+    .map((f) => f.replace(/[^a-z0-9._-]/gi, ""));
 
   // Remove duplicate filenames
   const uniqueFiles = [...new Set(normalized)];
