@@ -150,12 +150,15 @@ Add this to your MCP settings file (Kilo Code / Cursor / Claude Desktop):
 Replace `/your/project/path` with your actual project folder path.
  
 ### Step 2 — Restart Your Editor
- 
-That's it. `debug_ledger/` folder with 16 example files will be automatically created in your project.
+
  
 > **Node.js 18+** required.
 
 ![debug-ledger Installation](https://github.com/bhavnesh75/debug-ledger/blob/main/Kilo%20code.png)
+
+That's it. debug_ledger/ folder with 16 example files will be automatically created in your project like below screenshot.
+
+![debug-ledger Installation](https://github.com/bhavnesh75/debug-ledger/blob/main/folder-with-example-files.png)
  
 ---
  
