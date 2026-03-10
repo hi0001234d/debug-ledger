@@ -6,6 +6,19 @@
 
 ---
 
+## Tools
+
+`debug-ledger` exposes **4 MCP tools** that allow AI systems to access debugging history stored in the debug ledger.
+
+| Tool | Purpose | Example Return |
+|-----|-----|-----|
+| `list_ledger_files()` | Lists all available debug ledger files in the repository | `["incidents.md", "rejected_fixes.md", "regressions.md", "constraints.md"]` |
+| `read_ledger_file(file_name)` | Reads the full contents of a specific ledger file | `INCIDENT-014: Login timeout under load` |
+| `select_context(query, level)` | Finds relevant ledger entries related to a debugging query | `INCIDENT-014 / rejected fix: increase timeout` |
+| `assemble_debug_context(selected_context)` | Combines selected ledger entries into structured debugging context for AI | `Incident + rejected fix + constraints summary` |
+
+---
+ 
 ## Example: AI Debug With Memory
 ![Example: AI Debug With Memory](https://github.com/hi0001234d/debug-ledger/blob/main/example-ai-debug-with-memory.gif)
 
@@ -162,19 +175,6 @@ That's it. debug_ledger/ folder with 16 example files will be automatically crea
  
 ---
 
-## Tools
-
-`debug-ledger` exposes **4 MCP tools** that allow AI systems to access debugging history stored in the debug ledger.
-
-| Tool | Purpose | Example Return |
-|-----|-----|-----|
-| `list_ledger_files()` | Lists all available debug ledger files in the repository | `["incidents.md", "rejected_fixes.md", "regressions.md", "constraints.md"]` |
-| `read_ledger_file(file_name)` | Reads the full contents of a specific ledger file | `INCIDENT-014: Login timeout under load` |
-| `select_context(query, level)` | Finds relevant ledger entries related to a debugging query | `INCIDENT-014 / rejected fix: increase timeout` |
-| `assemble_debug_context(selected_context)` | Combines selected ledger entries into structured debugging context for AI | `Incident + rejected fix + constraints summary` |
-
----
- 
 ## Try It
  
 After setup, add this line to any AI prompt:
