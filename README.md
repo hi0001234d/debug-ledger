@@ -161,6 +161,19 @@ That's it. debug_ledger/ folder with 16 example files will be automatically crea
 ![debug-ledger Installation](https://github.com/bhavnesh75/debug-ledger/blob/main/folder-with-example-files.png)
  
 ---
+
+## Tools
+
+`debug-ledger` exposes **4 MCP tools** that allow AI systems to access debugging history stored in the debug ledger.
+
+| Tool | Purpose | Example Return |
+|-----|-----|-----|
+| `list_ledger_files()` | Lists all available debug ledger files in the repository | `["incidents.md", "rejected_fixes.md", "regressions.md", "constraints.md"]` |
+| `read_ledger_file(file_name)` | Reads the full contents of a specific ledger file | `INCIDENT-014: Login timeout under load` |
+| `select_context(query, level)` | Finds relevant ledger entries related to a debugging query | `INCIDENT-014 / rejected fix: increase timeout` |
+| `assemble_debug_context(selected_context)` | Combines selected ledger entries into structured debugging context for AI | `Incident + rejected fix + constraints summary` |
+
+---
  
 ## Try It
  
